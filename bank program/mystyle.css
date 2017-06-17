@@ -1,0 +1,80 @@
+/* external stylesheet for Final Exam */
+
+.formarea {
+	
+	width:100%;
+	font-size: x-large;
+}
+
+.formtitle {
+
+	width:530px; 
+	margin:0px auto; 
+	background-color:blue; 
+	color:white; 
+	border:solid black 5px;
+}
+
+.formhead {
+	text-align:center; 
+	width:510px; 
+	background-color:orange; 
+	color:black;padding:10px; 
+	padding-top:5px; 
+	font-size:xx-large;
+}
+
+.balancebox {
+	border:solid black 4px;
+	border-left:0px; 
+	border-right:0px; 
+	padding:10px;
+}
+
+.flabels {
+	width:250px; 
+	display:block; 
+	float:left;
+}
+
+.inputbox {
+	background-color:#CCCCCC;
+	border:solid orange 2px;
+	font-size:x-large;
+}
+
+.bottomarea {
+	border-top:solid black 2px; 
+	text-align:center; 
+	margin: 0px; 
+	padding:10px; 
+	background-color: orange;
+}
+
+.buttons {
+	background-color:blue; 
+	color:white; 
+	border:solid black 4px;
+	border:solid orange 2px;
+	font-size:x-large;
+}
+
+.divide {
+	background-color:orange;
+	padding:2px;
+}
+
+.menu {
+	border-top:solid black 0px;
+	border-left:0px; 
+	border-right:0px;
+	text-align:center; 
+	margin: 0px; 
+	padding:10px; 
+	background-color: orange; 
+	float:absolute;
+}
+
+#menualign {
+	text-align:left;
+}

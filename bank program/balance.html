@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>BMCC EBANK-BALANCE</title>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<script type="text/javascript">
+	   function setBalance()
+	   {
+		   var bal=document.getElementById("balance");
+		   localStorage.setItem("balance",bal.value);
+	   }
+	   function getBalance()
+	   {
+		   var value=localStorage.getItem("balance");
+		   if (value==null) {value="1000";localStorage.setItem("balance","1000")};
+		   document.getElementById("balance").value=value;
+	   }
+	</script>
+</head>
+<body>
+<div class="formarea">
+    <form>
+		<div class="formtitle"> 
+			<div class="formhead">BMCC E-BANK</div>
+		
+			<div class="balancebox">
+				<div style="">	
+					<label class="flabels">BALANCE:</label> 	
+					<input id="balance" type="text" id="out1" size="10" class="inputbox" /> 
+				</div>
+			</div>
+			
+			<div class="bottomarea">
+				<input class="buttons" type="button" value="SET NEW BALANCE" onclick="setBalance();" />
+				<input class="buttons" type="button" value="GET BALANCE" 	 onclick="getBalance();" />	
+			    <input class="buttons" type="button" value="MAIN MENU" onclick="location.href='menu.html'"/>
+			</div>
+      </div>
+    </form>
+</div>
+
+</body>
+</html>

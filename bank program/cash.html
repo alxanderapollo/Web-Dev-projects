@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>BMCC EBANK-CASH</title>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<script type="text/javascript">
+	   function setInitial()
+	   {
+		    var value=localStorage.getItem("balance");
+		    if (value==null) {localStorage.setItem("balance","1000")};
+	   }
+	   setInitial();
+	   function cashTransaction()
+	   {
+		   var balance=document.getElementById("balance");
+		   var charge=document.getElementById("charge");
+		   var amount=document.getElementById("amount");
+		   var bal=localStorage.getItem("balance");
+		   //alert(amount.value);
+		   //alert(charge.value);
+		   //alert(bal);
+		   bal=parseFloat(bal)-parseFloat(charge.value)-parseFloat(amount.value);
+		   //alert("new balance:"+bal);
+		   document.getElementById("balance").value=bal;
+		   localStorage.setItem("balance",bal);
+	   }
+
+		function clearform() {
+	   	document.getElementById("form2").reset();
+	   }	   
+	</script>
+</head>
+<body>
+<div class="formarea">
+    <form id="form2">
+		<div class="formtitle"> 
+			<div class="formhead">BMCC E-BANK</div>
+			<div class="balancebox">
+				<label class="flabels">CASH AMOUNT:</label>
+				<input class="inputbox" type="text" id="amount" size="10"/>  
+			</div>
+
+			<div class="divide"></div>
+			
+			<div class="balancebox">
+				<div style="">	
+				<label class="flabels">CHARGE:</label> 			
+				<input class="inputbox" id="charge" type="text" value="0.25" size="10" readonly/> 
+				</div>
+				<div style="">	
+				<label class="flabels">NEW BALANCE:</label>
+				<input class="inputbox" id="balance" type="text" size="10" readonly/> 
+				</div>
+			</div>
+			<div class="bottomarea">
+				<input class="buttons" type="button" value="GET CASH" onclick="cashTransaction();"/>
+				<input class="buttons" type="button" value="CLEAR" onclick="clearform();" />
+				<input class="buttons" type="button" value="MAIN MENU" onclick="location.href='menu.html'" />
+			</div>
+      </div>
+    </form>    
+</div>
+</body>
+</html>
