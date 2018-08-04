@@ -1,0 +1,221 @@
+<html>
+    
+  <head>
+      <title> Technology - BBC News</title>
+      
+      <!-- parameters for link, rel stands for relation, we are using a stylesheet for this project -->
+      <!-- type, its a CSS page we are opening, and finally the link is the name of the external style sheet. --> 
+      <link rel="stylesheet" type="text/css" href="bbc.css">
+  </head>
+
+
+  <body>
+      <!-- this div is the top bar of the bbc news website - and we are using id becasue this is one and only attribute that will have these particular specfication -->
+        <div id="topbar">
+                <img id="logo" src="images/bbc-logo.png">
+            
+                    <div id="signin-div" class="topbar-section">
+                    
+                       <img id="signin-image" src="images/signinimage.png">   
+                
+                        <span id= "signin-text">Sign in</span>
+                    
+                    </div>  
+            
+            <!--Still inside the first Div bell div  -->
+                    <div id= "bell-div">
+                        <img src="images/wigglyline.png" id="wigglyline">
+                        <img id="bell" src="images/bell.png">
+            
+                    </div>
+            
+                     <!--****TOP BAR MENU*********-->
+            
+                    <!--News Menu -->
+                    <div class= "topbar-section topbar-menu">
+                            News            
+                    </div>
+            
+                     <!--Sport Menu -->
+                    <div class= "topbar-section topbar-menu">
+                            Sport            
+                    </div>
+            
+                    <!--Weather Menu -->
+                    <div class= "topbar-section topbar-menu">
+                            Weather            
+                    </div>
+            
+                    <!--IPlayer Menu -->
+                    <div class= "topbar-section topbar-menu">
+                            IPlayer            
+                    </div>
+            
+                    <!--TV Menu -->
+                    <div class= "topbar-section topbar-menu">
+                            TV            
+                    </div>
+            
+                    <!--More Menu -->
+                    <div class= "topbar-section topbar-menu">
+                            More    
+                            <!-- Arrow at the end of more-->
+                        <img id="more-arrow" src="images/more-arrow.png">
+                    </div>
+                    
+            <!-- Maginifying glass and search bar -->
+                    <div class= "topbar-section">
+                          <input id="search-box" type="text" value="Search">
+                            <input type="image" id="maginifying-glass" src="images/magnifying-glass.png">
+                    </div>
+        </div>
+            <!-- Red banner and menu bar container -->
+        <div class="clear"></div>
+        <div id="menu-bar-container">
+            
+            <!-- Menu Bar -->
+            <div id="menu-bar">
+                
+            <h1>NEWS</h1>
+                
+                    <!-- local news pointer -->
+                    <div id="local-news">
+                    
+                    <a href="">Find local news</a>
+                    
+                    <img src="images/pointer.png">
+                
+                    </div>
+            
+            </div>
+            
+            <!-- menu bar 2 container -->
+            
+            <!-- clear our floats -->
+            <div class="clear"> </div>
+            
+            <div id="menu-bar-2-container">
+                
+                    <div id="menu-bar-2">
+                        
+                        <a href="">Home</a>
+                        
+                        <a href="">UK</a>
+                        
+                        <a href="">World</a>
+                        
+                        <a href="">Buisness</a>
+                          
+                        <a href="">Politics</a>
+                        
+                        <a href="">Tech</a>
+                          
+                        <a href="">Science</a>
+                        
+                        <a href="">Health</a>
+                          
+                        <a href="">Education</a>
+                        
+                        <a href="">Enterntainment & Arts</a>
+  
+                        <a href="">Video & Audio</a>
+                        
+                        <a href="" class="no-border">More</a>
+                        
+                        <img id="down-arrow" src="images/down-arrow.png">
+                        
+
+                    </div>
+                
+            
+            </div>
+            
+        </div>
+            
+      <!--  *********Page Content******* -->
+        <div class="clear"></div>
+      
+        <div id="page-container"> 
+            
+            <div id="main-article">
+                
+                <h2>Technology</h2>
+                
+                <!-- article container for the image, summary and date -->
+                <div id="article-container">
+                
+                    <h3><a href="">Asda bug exposed payment details</a></h3>
+
+                        <div id="article-summary">
+                            <!-- artlce summary paragraph -->
+                            <p>Security vulnerabilities that put customers at risk have affected Asda's website for a couple of years, a security expert has revealed.</p>
+
+                            <!-- clock -->
+                            <p id="techlink"><img class="clock" src="images/clock.png"><span class="date"> 19 January 2016</span><a class="topic-link" href="">Technology</a></p>
+                       
+                            <!-- horizontal Rule -->
+                            
+                            <hr id="article-hr" align="left"> 
+                            
+                            <p id="techlink"><a  class="article-link" href="">Surveillance firm hit in hack attack</a></p>
+
+                            <p id="techlink"><a class="article-link" href="">eBay flaw has existed for months</a></p>
+                            
+                        </div>
+                    <div>
+                       <!-- to the right of article summary --> 
+                            <img id="main-article-image"  src="images/main-article-image.png">
+                 </div>
+           
+            </div> <!-- End of Main article -->
+            
+                    <!-- video's on the right of the article sumamry and image -->
+                    <!-- clear floats -->
+            
+                    <div id="watch-listen">
+                        
+                        <h4> Watch/Listen</h4>
+                        
+                        <img class="article-side-image" src="images/article1.png">
+                        
+                        <!-- *****SIDE ARTICLE******* -->
+                        <div class="side-article">
+                        
+                            <p><a class="watch-listen-link" href="">UK science cheif backs blockchains</a></p>
+
+                            <p id="techlink"><img class="clock" src="images/clock.png"><span class="date"> 19 January 2016</span></p>
+                        
+                        </div>
+                        
+                        <div class="clear"></div>
+                        
+                        <!-- NEXT ARTICLE ON THE PAGE -->
+                        <img class="article-side-image" src="images/article2.png">
+                        
+                        <!-- *****SIDE ARTICLE #2******* -->
+                        <div class="side-article">
+                        
+                            <p><a class="watch-listen-link" href="">Drone register gives 'accountability'</a></p>
+
+                            <p id="techlink"><img class="clock" src="images/clock.png"><span class="date border-right"> 19 January 2016</span><br><a class="topic-link no-border"  href="">Technology</a></p>                       
+                        </div>
+                        
+                         <div class="clear"></div>
+                        
+                        <!-- NEXT ARTICLE ON THE PAGE -->
+                        <img class="article-side-image" src="images/article3.png">
+                        
+                        <!-- *****SIDE ARTICLE #3******* -->
+                        <div class="side-article">
+                        
+                            <p><a class="watch-listen-link" href="">SpaceX rocket explodes during landing</a></p>
+
+                            <p id="techlink"><img class="clock" src="images/clock.png"><span class="date border-right"> 19 January 2016</span><br><a class="topic-link no-border"  href="">Science & Environment</a></p>                       
+                        </div>
+
+                    </div>
+            </div>
+      
+  </body>
+
+</html>
