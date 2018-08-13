@@ -1,0 +1,162 @@
+<htm>
+
+    <head>
+        <title>JQUERY</title>
+        
+        <script type="text/javascript" src="jquery.js"></script>
+        
+        <style type="text/css">
+            
+            body{
+                font-family: helvetica, sans-serif;
+                font-size: 130%;
+            }
+            input{
+                padding: 5px 5px 12px 5px;
+                font-size: 25px;
+                border-radius: 5px;
+                border: 1px solid gray;
+                width: 320px;
+            }
+            
+            label{
+                position: relative;
+                top: 12px;
+                width: 200px;
+                float: left;
+            }
+            #wrapper{
+                width: 550px;
+                margin: 0 auto;
+            }
+            .form-element{
+                
+                margin-bottom: 10px;
+            }
+            #submitButton{
+                width: 130px;
+                margin-left: 200px;
+                
+            }
+            #errorMessage{
+                color: red;
+                font-size: 90% !important;
+            }
+            #successMessage{
+                color: green;
+                font-size: 90% !important;
+                display: none;
+                margin-bottom: 20px;
+            }
+        </style>
+        
+    
+    </head>
+    
+    <body>
+        
+        <div id="wrapper"> <!-- the wrapper div will place everthing to the center of the page -->
+            
+            <div id="successMessage">You Did it! Congrats.</div>
+            
+            <div id="errorMessage"></div>
+            
+            <div class="form-element">
+                    <!-- email -->
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="eg.yourname@gmail.com">
+            </div>
+            
+            
+            <div class="form-element">
+                    <!-- Telephone -->
+                <label for="phone">Telephone</label>
+                <input type="text" name="phone" id="phone" placeholder="eg.0123456789">   
+            </div>     
+            
+            <div class="form-element">
+                    <!-- Password -->
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">   
+            </div>
+            
+            <div class="form-element">
+                    <!-- Confirm Password -->
+                <label for="passwordConfirm">Confirm Password</label>
+                <input type="password" name="passwordConfirm" id="passwordConfirm">   
+            </div> 
+            
+             <div class="form-element">
+                    <!-- Submit -->
+                
+                <input type="submit"  id="submitButton" value="Sign Up">   
+            </div> 
+        
+        
+        </div>    
+                <script type="text/javascript">
+
+                    //Comes from stack overflow 
+                    //used to check for password authenticity
+                    function isEmail(email) {
+                      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                      return regex.test(email); //test is javascript fuction 
+                        }   
+
+                        //These functions will be error checking input form the user. 
+                    $("#submitButton").click(function (){
+                        
+                        //will display errors 
+                        var errorMessage = "";
+                        var feildsMissing = ""; // will deal with all the error prompts
+                        
+                        if($("#email").val() == ""){
+                            
+                            feildsMissing += "<br>Email";
+                        }
+                        if($("#phone").val() == ""){
+                            
+                            feildsMissing += "<br>Telephone";
+                        }
+                        if($("#password").val() == ""){
+                            
+                            feildsMissing += "<br>Password";
+                        }
+                        if($("#passwordConfirm").val() == ""){
+                            
+                            feildsMissing += "<br>Confirm Password";
+                        }
+                        
+                        if(feildsMissing != ""){
+                            errorMessage += "<p>The following feild(s) are missing: " + feildsMissing;
+                        }
+                        
+                        //if is not a valid email 
+                       if(isEmail($("#email").val()) == false){
+                           
+                           //paragraphs tag to appear on the screen page 
+                           errorMessage+= "<p>Your email address is not valid</p>";
+                       }
+                        //check to see if the phone number entered is numeric or not
+                        if($.isNumeric($("#phone").val()) == false){
+                             errorMessage+= "<p>Your Phone Number is not numeric</p>";  
+                        }
+                        //checking to see if passwords are the same
+                        if($("#password").val() != $("#passwordConfirm").val()){
+                             errorMessage+= "<p>Your passwords don't match</p>"; 
+                        }
+                        if(errorMessage != ""){
+                            $("#errorMessage").html(errorMessage);
+                        }else{
+                            $("successMessage").show();
+                            $("errorMessage").hide();
+                        }
+                        
+                    });
+
+
+                </script>
+ 
+    </body>
+    
+</htm>
