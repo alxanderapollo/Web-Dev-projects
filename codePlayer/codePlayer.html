@@ -1,0 +1,170 @@
+<html>
+
+    <head>
+        <title>JQUERY</title>
+        
+        <script type="text/javascript" src="jquery.js"></script>
+        
+        <!-- jqueryui is in a sub folder -->
+        <script src="jquery-ui/jquery-ui.js"></script>
+        
+        <style type="text/css">
+           
+            body{
+                font-family: sans-serif;
+                padding: 0;
+                margin: 0;
+            }
+            #header{
+                width: 100%;
+                background-color: #EEEEEE;
+                padding:5px;
+                height: 30px;
+            }
+            #buttonContainer{
+                width: 233px;
+                margin: 0 auto;
+            }
+            .toggleButton{
+                float:left;
+                border: 1px solid grey;
+                padding:6px;
+                border-right: none;
+                font-size: 90%
+            }
+            #logo{
+                float: left;
+                font-weight: bold;
+                font-size: 120%;
+                padding: 3px 5px;
+                
+            }
+            #html{
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+            #output{
+                border-top-right-radius:4px;
+                border-bottom-right-radius: 4px;
+                border-right: 1px solid grey;
+            }
+            .active{ /* for the background color of html and output  */
+                background-color: #E8F2FF;   
+            }
+            .highlightedButton{
+                background-color: grey;
+            }
+            textarea{
+                resize:none;
+                border-top: none;
+                border-color: grey;
+            }
+            .panel{
+                float:left;
+                width:50%;
+                border-left: none;
+            }
+            iframe{
+                border:none; 
+            }
+            .hidden{
+                display: none;
+            }
+        </style>
+        
+    
+    </head>
+    
+    <body> <!-- Body Start  -->   
+        <div id="header"> <!-- headder  -->
+        
+            <div id="logo">
+                CodePlayer 
+            </div>
+            
+            <div id="buttonContainer">
+                
+                <div class="toggleButton active" id="html">HTML</div>
+                <div class="toggleButton" id="css">CSS</div>
+                <div class="toggleButton" id="javascript">JavaScript</div>
+                <div class="toggleButton active" id="output">Output</div>
+            
+            
+            </div>
+    
+        </div> <!-- header end  -->
+        
+        
+        <div id="bodyContainer"> <!-- Body Container div start   -->
+        
+            <textarea id="htmlPanel" class="panel"><p id="paragraph" >Change me and toggle Css and  javascript afterwords!</p></textarea>
+            
+            <textarea id="cssPanel" class="panel hidden">p{ color: green; }</textarea>
+            
+            <textarea id="javascriptPanel" class="panel hidden">document.getElementById("paragraph").innerHTML = "Hello alex!";</textarea>
+            
+            
+            <iframe id="outputPanel" class="panel"></iframe>
+            
+        </div> <!-- Body Container div end  -->
+            
+        
+        <script type="text/javascript"> // start script
+            
+            
+                //FUNCTION FOR CREATING STYLES WHEN PAGE IS USED. 
+                    function updateOutput(){
+                     $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + $("#cssPanel").val() + "</style></head><body>" + $("#htmlPanel").val() + "</body></html>");
+                     
+                        document.getElementById("outputPanel").contentWindow.eval($("#javascriptPanel").val());
+                        
+                    }
+                
+                //for when the mouse hovers over one of the options a color turns up 
+                $(".toggleButton").hover(function(){
+                    $(this).addClass("highlightedButton"); //this represents the current hovering opertion//.css will change the background color to grey, hovering over will add the class of highlited button
+                }, function(){
+                       $(this).removeClass("highlightedButton");// hovering off will remove the class. 
+                });
+                
+                $(".toggleButton").click(function () {
+                   $(this).toggleClass("active"); // will triger the background color when clicked on the button 
+                    
+                   $(this).removeClass("highlightedButton");// will remove the color that is trigged when clicked again
+                   
+                // this 2 lines of code makes so that when the user toggles the html/css/javacript/output it will hide or reappear.    
+                  var panelId = $(this).attr("id") + "Panel";   
+                    
+                  $("#" + panelId).toggleClass("hidden"); 
+                    
+                  var numberofActivePanels = 4 - $('.hidden').length   // .length gets the number of elements with class  
+                    
+                  $(".panel").width(($(window).width() / numberofActivePanels) - 10); // will help in adhust
+                    
+                    
+                    //alert(panelId);
+                    
+                });
+            
+                //this wel make  text area to fixed size
+                $(".panel").height($(window).height() - $("#header").height() - 15); // setting the textaarea to hight of the window minus the heigh of the headder
+            
+                $(".panel").width(($(window).width() / 2) - 10);
+            
+                updateOutput();
+                
+               $("iframe").contents().find("html").html($("#htmlPanel").val());
+            
+                  $("textarea").on('change keyup paste', function() {
+                
+                  //will create an inline HTML/CSS page with      
+                  updateOutput();
+                 // document.getElementById("outputPanel").contentWindow.eval($("#javascriptPanel").val());
+                 });
+                
+           // end script
+           </script>
+ 
+    </body><!-- Body  end  -->
+    
+</html>
